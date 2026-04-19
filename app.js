@@ -54,7 +54,7 @@ app.use((req,res,next)=>{
 })
 
 //connecting the mongoose 
-const MONGO_URL="mongodb://mongodb:27017/wanderlustNew"
+const MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/wanderlustNew";
 async function main(){
    await mongoose.connect(MONGO_URL);
 }
