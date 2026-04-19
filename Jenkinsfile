@@ -45,11 +45,11 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 echo 'Applying Kubernetes manifests...'
-                //sh "kubectl apply -f mongo.yaml"
-                //sh "kubectl apply -f app.yaml"
+                sh "kubectl apply -f mongo.yaml"
+                sh "kubectl apply -f app.yaml"
                 
                 // Forces Kubernetes to pull the fresh image you just pushed
-                //sh "kubectl rollout restart deployment/node-app"
+                sh "kubectl rollout restart deployment/node-app"
             }
         }
     }

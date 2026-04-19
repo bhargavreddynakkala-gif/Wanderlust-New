@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: your-dockerhub-username/bhargav-app:1
+        image: bhargav1015/bhargav-app:1
         ports:
         - containerPort: 8080
         env:
@@ -26,10 +26,11 @@ kind: Service
 metadata:
   name: node-app-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: node-app
   ports:
     - protocol: TCP
-      port: 8080
+      port: 80
       targetPort: 8080
+      nodePort: 30007
